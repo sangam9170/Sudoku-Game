@@ -38,20 +38,20 @@ const ll LINF = 1e18;
 
 class Solution {
 public:
-    int evenlyDivides(int n) {
-        // code here
-        int count = 0;
-        int temp = n;
-        while (n > 0) {
-            int rem = n % 10;
-            if (rem != 0 && temp % rem == 0) {
-                count++;
-            }
-            n = n / 10;
+    bool isPalindrome(int x) {
+        if (x < 0) {
+            return false;
         }
-        return count;
+        long long int org = x;
+        long long int temp = 0;
+        while (x > 0) {
+            int r = x % 10;
+            temp = temp * 10 + r;
+            x = x / 10;
+        }
+        return org == temp;
     }
-}; 
+};
 
 int main() {
     fast_io;
@@ -61,13 +61,13 @@ int main() {
     int t;
     cin >> t;
     while(t--) {
-        int n;
-        cin >> n;
+        int x;
+        cin >> x;
         
         Solution sol;
-        int result = sol.evenlyDivides(n);
+        bool result = sol.isPalindrome(x);
         
-        cout << result << endl;
+        cout << (result ? "true" : "false") << endl;
     }
     return 0;
 }
