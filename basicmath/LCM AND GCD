@@ -1,0 +1,17 @@
+class Solution {
+  public:
+    long long gcd(long long A , long long B){
+    
+        return  __gcd(A, B);
+    }
+    vector<long long> lcmAndGcd(long long A , long long B) {
+        vector<long long>ans;
+        // code here
+        long long b=gcd(A,B);
+         long long  a=A*B/b;
+         ans.push_back(a);
+         ans.push_back(b);
+         return ans;
+    }
+
+};
